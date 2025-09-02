@@ -1,5 +1,5 @@
 from django.utils import timezone
-from models import RequestLog
+from .models import RequestLog
 
 class IPLoggingMiddleware:
     """
