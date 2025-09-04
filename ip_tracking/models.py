@@ -8,10 +8,14 @@ class RequestLog(models.Model):
     ip_address = models.GenericIPAddressField()
     # Stores the path that was requested
     path = models.CharField(max_length=255)
+    # Stores the country of the requester (geolocation)
+    country = models.CharField(max_length=100, blank=True, null=True)
+    # Stores the city of the requester (geolocation)
+    city = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
-        # Helpful for debugging and the admin display
-        return str(self.ip_address)
+        # Display IP, country, and city for easier debugging
+        return f"{self.ip_address} ({self.country}, {self.city})"
 
 # Model to store blocked IP addresses for blacklisting
 class BlockedIP(models.Model):
