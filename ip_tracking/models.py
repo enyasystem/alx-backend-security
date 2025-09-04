@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-
+created_at = models.DateTimeField(auto_now_add=True)
 # Model to log requests (already present)
 class RequestLog(models.Model):
     # Stores the IP address of the requester
