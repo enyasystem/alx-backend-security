@@ -1,7 +1,6 @@
 from django.db import models
 
 # Create your models here.
-created_at = models.DateTimeField(auto_now_add=True)
 # Model to log requests (already present)
 class RequestLog(models.Model):
     # Stores the IP address of the requester
@@ -12,6 +11,7 @@ class RequestLog(models.Model):
     country = models.CharField(max_length=100, blank=True, null=True)
     # Stores the city of the requester (geolocation)
     city = models.CharField(max_length=100, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         # Display IP, country, and city for easier debugging
