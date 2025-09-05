@@ -43,6 +43,25 @@ CELERY_BEAT_SCHEDULE = {
     },
 }
 
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],   # optional; keep if you have your own templates
+        "APP_DIRS": True,                   # <-- must be True so Django scans app templates
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",  # good to have
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
+
 
 import dj_database_url
 
@@ -78,7 +97,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ip_tracking',
-    'django_ratelimit'
+    'django_ratelimit',
+     "rest_framework",   # required by drf-yasg
+    "drf_yasg",         # <-- add this
 ]
 
 MIDDLEWARE = [
