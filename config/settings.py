@@ -62,6 +62,12 @@ TEMPLATES = [
     },
 ]
 
+# Swagger public access
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,   # Disable session auth
+    'LOGIN_URL': None,           # Prevent redirect to login page
+}
+
 
 import dj_database_url
 
