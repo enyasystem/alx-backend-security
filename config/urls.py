@@ -22,7 +22,7 @@ urlpatterns = [
     path('', landing_page, name='landing_page'),
     path('admin/', admin.site.urls),
     path('login/', login_view, name='login'),
-    path('accounts/', include('django.contrib.auth.urls')),   # ✅ add this line
+    # path('accounts/', include('django.contrib.auth.urls')),   # ✅ add this line
 
     # Swagger docs
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
