@@ -6,6 +6,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from ip_tracking.views import landing_page, login_view
 
+
 schema_view = get_schema_view(
     openapi.Info(
         title="ALX Backend Security API",
@@ -13,8 +14,9 @@ schema_view = get_schema_view(
         description="API documentation for ALX Backend Security",
     ),
     public=True,
-    permission_classes=(permissions.AllowAny,),
+    permission_classes=(permissions.AllowAny,),  # ✅ No auth required
 )
+
 
 urlpatterns = [
     path('', landing_page, name='landing_page'),
